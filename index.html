@@ -28,7 +28,7 @@
     <nav class="hero-nav" aria-label="Main">
       <a class="link only-wide-link" href="#prey">What it eats</a>
       <a class="link only-wide-link" href="#screens">Screens</a>
-      <a class="link only-wide-link" href="#open">Open source</a>
+      <a class="link only-wide-link" href="#open">Contribute</a>
       <a class="button" href="https://github.com/Hyena-App/hyena">Get it on GitHub</a>
     </nav>
   </div>
@@ -231,20 +231,25 @@
     </div>
   </section>
 
-  <!-- Open source -->
+  <!-- Contribute -->
   <section class="open" id="open" aria-labelledby="open-title">
     <div class="open-grid wrap grid">
-      <h2 id="open-title" class="open-title" data-reveal>Free. Open. Yours to improve.</h2>
+      <h2 id="open-title" class="open-title" data-reveal>Help it hunt.</h2>
       <p class="open-lead" data-reveal>
-        Hyena is MIT-licensed and built in the open. Read every line that touches your files, build it yourself, or teach it something new.
+        Hyena is open source and grows with every contribution: new detectors, sharper suggestions, fixes, design.
+        It all happens on GitHub, and first pull requests are welcome.
       </p>
       <div class="terminal" data-reveal>
         <pre><code id="build-cmd">git clone https://github.com/Hyena-App/hyena.git
-cd hyena && zsh scripts/build-app.sh
-open dist/Hyena.app</code></pre>
+cd hyena && swift test
+zsh scripts/build-app.sh && open dist/Hyena.app</code></pre>
         <button class="copy" type="button" data-copy="build-cmd">Copy</button>
       </div>
       <ul class="ways">
+        <li data-reveal>
+          <a class="way link" href="https://github.com/Hyena-App/hyena/issues">Pick up an issue</a>
+          <span>Browse what’s open, comment to claim one, and send a pull request.</span>
+        </li>
         <li data-reveal>
           <a class="way link" href="https://github.com/Hyena-App/hyena/blob/main/CONTRIBUTING.md">Teach it a new ecosystem</a>
           <span>Go, Android, Bazel: add a detector with its marker file and a test.</span>
@@ -258,6 +263,7 @@ open dist/Hyena.app</code></pre>
           <span>Anything that could touch the wrong file is treated as a security issue.</span>
         </li>
       </ul>
+      <a class="button button-accent" href="https://github.com/Hyena-App/hyena/blob/main/CONTRIBUTING.md" data-reveal>Contribute on GitHub</a>
     </div>
   </section>
 
@@ -266,7 +272,7 @@ open dist/Hyena.app</code></pre>
     <h2 id="faq-title" class="faq-title" data-reveal>Fair questions</h2>
     <div class="faq-text" data-reveal>
       <p><strong>Is it only for developers?</strong> No. Caches, Trash, old installers, iPhone backups and leftovers from deleted apps pile up on every Mac. Developer folders are a bonus.</p>
-      <p><strong>Is it free?</strong> Yes. Hyena is open source under the MIT license.</p>
+      <p><strong>Can I contribute?</strong> Please do. Hyena is open source under the MIT license; issues and pull requests are welcome on GitHub.</p>
       <p><strong>Does Hyena delete things on its own?</strong> No. It suggests, you review, and nothing goes until you press Clean. Items move to Trash unless you turn on Delete immediately.</p>
       <p><strong>What about my iPhone backups?</strong> They’re listed with the device and date, and never preselected. Keep any you might restore from.</p>
       <p><strong>How does it know a target folder is a Rust build?</strong> It looks for the marker beside it: Cargo.toml for target, package.json for node_modules. Same name, no marker, no match.</p>
@@ -276,7 +282,7 @@ open dist/Hyena.app</code></pre>
       <p><strong>What about apps that are open?</strong> Their caches are flagged and left unchecked, so you can quit the app first.</p>
       <p><strong>Why does Trash need Full Disk Access?</strong> macOS protects Trash and device backups. Grant access to see inside, or let Hyena ask Finder to empty Trash.</p>
       <p><strong>What does it need?</strong> macOS 14 or later. The on-device AI features need macOS 26 with Apple Intelligence.</p>
-      <p><strong>When is there a download?</strong> Build it from source today. Watch the repository to hear when the first signed release ships.</p>
+      <p><strong>When is there a download?</strong> A signed release is on its way. Watch the repository on GitHub to hear when it ships.</p>
     </div>
   </section>
 
@@ -299,8 +305,8 @@ open dist/Hyena.app</code></pre>
       <span class="line"><span data-reveal-line>scavenge.</span></span>
     </h2>
     <div class="cta-row wrap">
-      <p class="cta-sentence">Free and open source. Build it today, star it, and help it hunt.</p>
-      <a class="button button-dark" href="https://github.com/Hyena-App/hyena">Get it on GitHub</a>
+      <p class="cta-sentence">Open source and built in the open. Star it, open an issue, or send your first pull request.</p>
+      <a class="button button-dark" href="https://github.com/Hyena-App/hyena">Contribute on GitHub</a>
     </div>
   </section>
 
@@ -317,7 +323,7 @@ open dist/Hyena.app</code></pre>
       <ul>
         <li><a class="link" href="#prey">What it eats</a></li>
         <li><a class="link" href="#screens">Screens</a></li>
-        <li><a class="link" href="#open">Open source</a></li>
+        <li><a class="link" href="#open">Contribute</a></li>
         <li><a class="link" href="https://github.com/Hyena-App/hyena/blob/main/LICENSE">MIT license</a></li>
       </ul>
       <ul>
