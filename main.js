@@ -87,3 +87,83 @@
     if (entry.isIntersecting) video.play().catch(() => {}); else video.pause();
   }).observe(video);
 })();
+
+// Hero: the second line eats through what Hyena finds, letter by letter from
+// the end, then lands on its verb while the meter counts up to the real total.
+// Without script or with reduced motion, the final words are already in the markup.
+(() => {
+  const chew = document.getElementById('chew');
+  const meter = document.getElementById('meter');
+  if (!chew || matchMedia('(prefers-reduced-motion: reduce)').matches || !chew.animate) return;
+  const words = ['caches.', 'downloads.', 'trash.', 'backups.', 'builds.', 'scavenges.'];
+  const total = 47.84;
+  const start = 950, hold = 260, bite = 34;
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const appear = () => chew.animate(
+    [{ opacity: 0, transform: 'scale(0.985)' }, { opacity: 1, transform: 'none' }],
+    { duration: 220, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' }
+  );
+
+  // Rough length of the sequence, so the meter finishes with the last word.
+  const duration = words.slice(0, -1).reduce((sum, w) => sum + hold + w.length * bite, 0);
+
+  (async () => {
+    chew.textContent = words[0];
+    await wait(start);
+    for (const [index, word] of words.entries()) {
+      chew.textContent = word;
+      if (index > 0) appear();
+      if (index === words.length - 1) break;
+      await wait(hold);
+      for (let n = word.length - 1; n >= 0; n -= 1) {
+        chew.textContent = word.slice(0, n) || '\u00a0';
+        await wait(bite);
+      }
+    }
+  })();
+
+  if (meter) {
+    meter.textContent = '0.00 GB';
+    const begin = performance.now() + start;
+    const tick = (now) => {
+      const t = Math.min(1, Math.max(0, (now - begin) / duration));
+      const eased = 1 - Math.pow(1 - t, 3);
+      meter.textContent = `${(total * eased).toFixed(2)} GB`;
+      if (t < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+})();
+
+// Copy the build commands.
+document.querySelectorAll('[data-copy]').forEach((button) => {
+  button.addEventListener('click', async () => {
+    const text = document.getElementById(button.dataset.copy)?.textContent ?? '';
+    try { await navigator.clipboard.writeText(text); button.textContent = 'Copied'; }
+    catch { button.textContent = 'Select and copy'; }
+    setTimeout(() => { button.textContent = 'Copy'; }, 1800);
+  });
+});
+
+// Drag the screens row with a mouse; touch and trackpads scroll natively.
+(() => {
+  const row = document.querySelector('.screen-row');
+  if (!row) return;
+  let startX = 0, startScroll = 0, dragging = false;
+  row.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'mouse') return;
+    dragging = true; startX = event.clientX; startScroll = row.scrollLeft;
+    row.classList.add('is-dragging'); row.setPointerCapture(event.pointerId);
+  });
+  row.addEventListener('pointermove', (event) => {
+    if (dragging) row.scrollLeft = startScroll - (event.clientX - startX);
+  });
+  const end = () => { dragging = false; row.classList.remove('is-dragging'); };
+  row.addEventListener('pointerup', end);
+  row.addEventListener('pointercancel', end);
+  row.addEventListener('keydown', (event) => {
+    const step = row.clientWidth * 0.8;
+    if (event.key === 'ArrowRight') { event.preventDefault(); row.scrollBy({ left: step, behavior: 'smooth' }); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); row.scrollBy({ left: -step, behavior: 'smooth' }); }
+  });
+})();
