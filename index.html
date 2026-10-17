@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hyena — the Mac cleaner for developers</title>
+  <meta name="description" content="Hyena finds the node_modules, target folders, DerivedData and caches you forgot, explains them with on-device AI, and clears them only when you say so.">
+  <meta name="theme-color" content="#c96f1f">
+  <meta property="og:title" content="Hyena — the Mac cleaner for developers">
+  <meta property="og:description" content="Finds the builds and caches you forgot. Clears them only when you say so. Nothing leaves your Mac.">
+  <meta property="og:image" content="assets/icon.png">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link rel="preconnect" href="https://cdn.fontshare.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- Hero: the name, two inks -->
+<header class="hero" id="top">
+  <div class="hero-top wrap">
+    <a class="mark link" href="#top" aria-label="Hyena, back to top">
+      <img src="assets/icon.png" width="28" height="28" alt="">
+      <span>Hyena</span>
+    </a>
+    <nav class="hero-nav" aria-label="Main">
+      <a class="link only-wide-link" href="#prey">What it eats</a>
+      <a class="link only-wide-link" href="#commands">Commands</a>
+      <a class="link" href="#faq">FAQ</a>
+      <a class="button" href="#get">Get Hyena</a>
+    </nav>
+  </div>
+  <h1 class="hero-title lines wrap">
+    <span class="line"><span data-line style="--i:0" class="ink-light">Hyena</span></span>
+    <span class="line"><span data-line style="--i:1" class="ink-dark">scavenges.</span></span>
+  </h1>
+  <p class="hero-sentence wrap" data-rise style="--i:6">
+    A Mac cleaner for developers. It finds the builds and caches you forgot, and clears them only when you say so.
+  </p>
+</header>
+
+<main>
+
+  <!-- Showcase: two giant numbers -->
+  <section class="compare" aria-labelledby="compare-title">
+    <div class="compare-intro wrap grid">
+      <h2 id="compare-title" class="compare-title" data-reveal>Big finds. No leaks.</h2>
+      <p class="compare-text" data-reveal>
+        We pointed Hyena at one working developer’s Mac. It found 47.84 GB of caches, logs and build leftovers,
+        26.6 GB of it in a single npm cache. The on-device model that explained every item sent nothing anywhere.
+      </p>
+    </div>
+    <div class="compare-specimens wrap grid">
+      <figure class="specimen" data-reveal>
+        <span class="specimen-figure nums" aria-hidden="true">48</span>
+        <figcaption>gigabytes found on one Mac</figcaption>
+      </figure>
+      <figure class="specimen specimen-b" data-reveal>
+        <span class="specimen-figure nums" aria-hidden="true">0</span>
+        <figcaption>bytes sent off it</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- How it works: the progress bar, enlarged -->
+  <section class="stages wrap" id="how" aria-labelledby="stages-title">
+    <h2 id="stages-title" class="stages-title" data-reveal>Sniff, review, clean</h2>
+    <ol class="stage-bar" data-ui aria-label="The four stages of a cleanup">
+      <li class="stage stage-scan" style="--grow:60" data-reveal>
+        <span class="stage-time">About a minute</span>
+        <p class="stage-text">First, Hyena measures caches, logs, Xcode data and your projects. Read-only.</p>
+      </li>
+      <li class="stage stage-review" style="--grow:120" data-reveal>
+        <span class="stage-time">As long as you like</span>
+        <p class="stage-text">Then you open anything, file by file, and uncheck whatever stays.</p>
+      </li>
+      <li class="stage stage-clean" style="--grow:14" data-reveal>
+        <span class="stage-time">Seconds</span>
+        <p class="stage-text">Then every path is checked again and moved to Trash.</p>
+      </li>
+      <li class="stage stage-free" style="--grow:14" data-reveal>
+        <span class="stage-time">One click</span>
+        <p class="stage-text">Finally, empty Trash and the space is yours.</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Picture: the namesake -->
+  <figure class="band">
+    <div class="shutter-frame shutter" data-reveal>
+      <img src="assets/hyena-profile.jpg" width="2200" height="1180" loading="lazy"
+           alt="A spotted hyena walking through low flowering scrub, seen in profile.">
+    </div>
+    <figcaption class="band-credit wrap">Spotted hyena by Charles J. Sharp, CC BY-SA 4.0</figcaption>
+  </figure>
+
+  <!-- Features: the command menu, scaled up -->
+  <section class="commands wrap" id="commands" aria-label="What you can do in Hyena">
+    <div class="command-menu" data-ui>
+      <label class="sr-only" for="command-filter">Filter Hyena’s commands</label>
+      <input id="command-filter" class="command-input" type="search" placeholder="Ask Hyena" autocomplete="off" spellcheck="false" data-reveal>
+      <ul class="command-list" id="command-list" role="listbox" aria-label="Commands">
+        <li class="command" role="option" tabindex="-1" data-reveal>
+          <span class="command-name">Clean Now</span><span class="keys" aria-label="Command Return"><kbd>⌘</kbd><kbd>↩</kbd></span>
+          <p class="command-detail">See a summary of every category, then clean. Recommended items are already checked; risky ones never are.</p>
+        </li>
+        <li class="command" role="option" tabindex="-1" data-reveal>
+          <span class="command-name">Ask Hyena</span><span class="keys" aria-label="Command K"><kbd>⌘</kbd><kbd>K</kbd></span>
+          <p class="command-detail">Type “old Rust builds except work” and see exactly what that selects before anything happens.</p>
+        </li>
+        <li class="command" role="option" tabindex="-1" data-reveal>
+          <span class="command-name">What is this?</span><span class="keys" aria-hidden="true"></span>
+          <p class="command-detail">Explains any folder: what made it, what cleaning it does, and whether it’s safe, worth a check, or worth keeping.</p>
+        </li>
+        <li class="command" role="option" tabindex="-1" data-reveal>
+          <span class="command-name">Scan Again</span><span class="keys" aria-label="Command R"><kbd>⌘</kbd><kbd>R</kbd></span>
+          <p class="command-detail">Measures everything again. Each category fills in the moment it finishes.</p>
+        </li>
+        <li class="command" role="option" tabindex="-1" data-reveal>
+          <span class="command-name">Never Clean This</span><span class="keys" aria-hidden="true"></span>
+          <p class="command-detail">Protects a folder for good. Anything that contains it is skipped too.</p>
+        </li>
+        <li class="command" role="option" tabindex="-1" data-reveal>
+          <span class="command-name">Suggestions</span><span class="keys" aria-hidden="true"></span>
+          <p class="command-detail">Every week or month, a quiet rescan and a few ideas picked for how you work. Dismiss one and it backs off.</p>
+        </li>
+        <li class="command" role="option" tabindex="-1" data-reveal>
+          <span class="command-name">Empty Trash</span><span class="keys" aria-hidden="true"></span>
+          <p class="command-detail">Moving to Trash frees nothing yet. This does, when you’re sure.</p>
+        </li>
+        <li class="command" role="option" tabindex="-1" data-reveal>
+          <span class="command-name">Settings</span><span class="keys" aria-label="Command Comma"><kbd>⌘</kbd><kbd>,</kbd></span>
+          <p class="command-detail">Pick categories, project folders, reminders, and how much Hyena should learn from you.</p>
+        </li>
+      </ul>
+      <p class="command-empty" id="command-empty" hidden>Nothing matches. Hyena would ask you to rephrase too.</p>
+    </div>
+  </section>
+
+  <!-- List: the prey, as a poster -->
+  <section class="prey" id="prey" aria-label="Folders Hyena recognizes">
+    <ul class="prey-list wrap">
+      <li class="prey-item" data-reveal><span class="prey-name">node_modules</span><span class="prey-detail">beside package.json</span></li>
+      <li class="prey-item" data-reveal><span class="prey-name">target</span><span class="prey-detail">beside Cargo.toml or pom.xml</span></li>
+      <li class="prey-item" data-reveal><span class="prey-name">deriveddata</span><span class="prey-detail">Xcode, per project</span></li>
+      <li class="prey-item" data-reveal><span class="prey-name">.gradle</span><span class="prey-detail">beside build.gradle</span></li>
+      <li class="prey-item" data-reveal><span class="prey-name">__pycache__</span><span class="prey-detail">any Python project</span></li>
+      <li class="prey-item" data-reveal><span class="prey-name">.next</span><span class="prey-detail">beside package.json</span></li>
+      <li class="prey-item" data-reveal><span class="prey-name">pods</span><span class="prey-detail">beside Podfile, review first</span></li>
+    </ul>
+    <p class="prey-note wrap" data-reveal>
+      Plus .build, .dart_tool, _build, .zig-cache, .stack-work, .terraform, .venv and more: eighteen ecosystems,
+      each matched by the file that sits beside its leftovers. A folder that only shares a name is never touched.
+    </p>
+  </section>
+
+  <!-- Moving picture beside a statement -->
+  <section class="watch wrap grid" aria-label="On-device intelligence">
+    <figure class="watch-clip shutter" data-reveal>
+      <video src="assets/hyena-drinking.webm" poster="assets/hyena-drinking-poster.jpg" width="1920" height="1080"
+             autoplay muted loop playsinline preload="metadata"
+             aria-label="A spotted hyena drinking at a waterhole in the Kalahari."></video>
+      <figcaption class="clip-credit">Spotted hyena drinking, by Bernard Dupont, CC BY-SA 2.0</figcaption>
+    </figure>
+    <div class="watch-copy">
+      <p class="statement" data-reveal>
+        It thinks on your Mac, and it never deletes a thing on its own.
+      </p>
+      <p class="watch-text" data-reveal>
+        On macOS 26 with Apple Intelligence, Hyena uses Foundation Models locally. Everywhere else it falls back to
+        built-in rules, so every feature still works. No account, no analytics, no network calls when it cleans.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ: reading text -->
+  <section class="faq wrap grid" id="faq" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="faq-title" data-reveal>Fair questions</h2>
+    <div class="faq-text" data-reveal>
+      <p><strong>Does Hyena delete things on its own?</strong> No. It suggests, you review, and nothing goes until you press Clean. Items move to Trash unless you turn on Delete immediately.</p>
+      <p><strong>What does it find?</strong> App caches, logs, caches inside Application Support, leftovers from removed apps, Trash, Time Machine snapshots, Xcode data, package-manager caches, and build folders in your projects.</p>
+      <p><strong>How does it know a target folder is a Rust build?</strong> It looks for the marker beside it: Cargo.toml for target, package.json for node_modules, Package.swift for .build. Same name, no marker, no match.</p>
+      <p><strong>Can I keep part of a folder?</strong> Yes. Expand any item, see real sizes, and uncheck files or folders. Only what’s still checked is cleaned.</p>
+      <p><strong>Where does the AI run?</strong> On your Mac, with Apple’s Foundation Models on macOS 26 and Apple Intelligence. Without them, built-in rules take over.</p>
+      <p><strong>Does it send my file names anywhere?</strong> No. Paths, sizes and habits stay on your Mac.</p>
+      <p><strong>What about apps that are open?</strong> Their caches are flagged and left unchecked, so you can quit the app first.</p>
+      <p><strong>Why does Trash need Full Disk Access?</strong> macOS protects the Trash folder. Grant access to see inside it, or let Hyena ask Finder to empty it.</p>
+      <p><strong>Will it learn my habits?</strong> If you let it. Things you keep twice start unchecked; after three keeps it offers to protect them. One button forgets it all.</p>
+      <p><strong>Is it safe on snapshots?</strong> Only local Time Machine snapshots are listed. Your backup disk is never touched, and macOS asks for your password first.</p>
+      <p><strong>What does it need?</strong> macOS 14 or later. The on-device AI features need macOS 26 with Apple Intelligence.</p>
+      <p><strong>When can I download it?</strong> Hyena is in private development. Follow the project on GitHub to hear when the first signed build ships.</p>
+    </div>
+  </section>
+
+  <!-- Second picture: the look -->
+  <figure class="portrait wrap grid">
+    <div class="portrait-img shutter" data-reveal>
+      <img src="assets/hyena-kenya.jpg" width="1400" height="1276" loading="lazy"
+           alt="A spotted hyena standing in dry grass, looking toward the camera.">
+    </div>
+    <figcaption class="portrait-text" data-reveal>
+      <p class="statement">Hyenas clean up what others leave behind. On a Mac, that’s most of the disk.</p>
+      <p class="small portrait-credit">Spotted hyena in Kenya by Joanne Goldby, CC BY 2.0</p>
+    </figcaption>
+  </figure>
+
+  <!-- CTA: the idea again, on the hero's field -->
+  <section class="cta" id="get" aria-labelledby="cta-title">
+    <h2 id="cta-title" class="cta-title lines wrap">
+      <span class="line"><span data-reveal-line>Let it</span></span>
+      <span class="line"><span data-reveal-line>scavenge.</span></span>
+    </h2>
+    <div class="cta-row wrap">
+      <p class="cta-sentence">The first signed build is on its way. Follow along and be first to know.</p>
+      <a class="button button-dark" href="https://github.com/Hyena-App">Follow on GitHub</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p class="footer-mark" aria-hidden="true">Hyena</p>
+  <div class="footer-row wrap grid">
+    <ul class="footer-places">
+      <li><a class="link" href="https://github.com/Hyena-App">github.com/Hyena-App</a></li>
+      <li><a class="link" href="#faq">Questions, answered</a></li>
+    </ul>
+    <div class="footer-links">
+      <ul>
+        <li><a class="link" href="#prey">What it eats</a></li>
+        <li><a class="link" href="#how">How it works</a></li>
+        <li><a class="link" href="#commands">Commands</a></li>
+      </ul>
+      <ul>
+        <li><a class="link" href="https://commons.wikimedia.org/w/index.php?curid=68094356">Profile photo: Charles J. Sharp, CC BY-SA 4.0</a></li>
+        <li><a class="link" href="https://commons.wikimedia.org/w/index.php?curid=17189068">Portrait: Joanne Goldby, CC BY 2.0</a></li>
+        <li><a class="link" href="https://commons.wikimedia.org/wiki/File:Spotted_Hyena_(Crocuta_crocuta)_drinking_....webm">Clip: Bernard Dupont, CC BY-SA 2.0</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-legal wrap">
+    <p class="small">© 2026 Hyena. Made on a Mac, for Macs.</p>
+    <a class="small link" href="#top">Back to top</a>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
