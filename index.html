@@ -270,19 +270,55 @@ zsh scripts/build-app.sh && open dist/Hyena.app</code></pre>
   <!-- FAQ: reading text -->
   <section class="faq wrap grid" id="faq" aria-labelledby="faq-title">
     <h2 id="faq-title" class="faq-title" data-reveal>Fair questions</h2>
-    <div class="faq-text" data-reveal>
-      <p><strong>Is it only for developers?</strong> No. Caches, Trash, old installers, iPhone backups and leftovers from deleted apps pile up on every Mac. Developer folders are a bonus.</p>
-      <p><strong>Can I contribute?</strong> Please do. Hyena is open source under the MIT license; issues and pull requests are welcome on GitHub.</p>
-      <p><strong>Does Hyena delete things on its own?</strong> No. It suggests, you review, and nothing goes until you press Clean. Items move to Trash unless you turn on Delete immediately.</p>
-      <p><strong>What about my iPhone backups?</strong> They’re listed with the device and date, and never preselected. Keep any you might restore from.</p>
-      <p><strong>How does it know a target folder is a Rust build?</strong> It looks for the marker beside it: Cargo.toml for target, package.json for node_modules. Same name, no marker, no match.</p>
-      <p><strong>Can I keep part of a folder?</strong> Yes. Expand any item, see real sizes, and uncheck files or folders. Only what’s still checked is cleaned.</p>
-      <p><strong>Where does the AI run?</strong> On your Mac, with Apple’s Foundation Models on macOS 26 and Apple Intelligence. Without them, built-in rules take over.</p>
-      <p><strong>Does it send my file names anywhere?</strong> No. Paths, sizes and habits stay on your Mac.</p>
-      <p><strong>What about apps that are open?</strong> Their caches are flagged and left unchecked, so you can quit the app first.</p>
-      <p><strong>Why does Trash need Full Disk Access?</strong> macOS protects Trash and device backups. Grant access to see inside, or let Hyena ask Finder to empty Trash.</p>
-      <p><strong>What does it need?</strong> macOS 14 or later. The on-device AI features need macOS 26 with Apple Intelligence.</p>
-      <p><strong>When is there a download?</strong> A signed release is on its way. Watch the repository on GitHub to hear when it ships.</p>
+    <div class="faq-list" data-reveal>
+      <details class="faq-item">
+        <summary>Is it only for developers?</summary>
+        <p>No. Caches, Trash, old installers, iPhone backups and leftovers from deleted apps pile up on every Mac. Developer folders are a bonus.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I contribute?</summary>
+        <p>Please do. Hyena is open source under the MIT license; issues and pull requests are welcome on GitHub.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does Hyena delete things on its own?</summary>
+        <p>No. It suggests, you review, and nothing goes until you press Clean. Items move to Trash unless you turn on Delete immediately.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What about my iPhone backups?</summary>
+        <p>They’re listed with the device and date, and never preselected. Keep any you might restore from.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How does it know a target folder is a Rust build?</summary>
+        <p>It looks for the marker beside it: Cargo.toml for target, package.json for node_modules. Same name, no marker, no match.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I keep part of a folder?</summary>
+        <p>Yes. Expand any item, see real sizes, and uncheck files or folders. Only what’s still checked is cleaned.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Where does the AI run?</summary>
+        <p>On your Mac, with Apple’s Foundation Models on macOS 26 and Apple Intelligence. Without them, built-in rules take over.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does it send my file names anywhere?</summary>
+        <p>No. Paths, sizes and habits stay on your Mac.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What about apps that are open?</summary>
+        <p>Their caches are flagged and left unchecked, so you can quit the app first.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Why does Trash need Full Disk Access?</summary>
+        <p>macOS protects Trash and device backups. Grant access to see inside, or let Hyena ask Finder to empty Trash.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What does it need?</summary>
+        <p>macOS 14 or later. The on-device AI features need macOS 26 with Apple Intelligence.</p>
+      </details>
+      <details class="faq-item">
+        <summary>When is there a download?</summary>
+        <p>A signed release is on its way. Watch the repository on GitHub to hear when it ships.</p>
+      </details>
     </div>
   </section>
 
