@@ -188,6 +188,11 @@ document.querySelectorAll('[data-copy]').forEach((button) => {
     const newer = remoteTag && remoteTag !== localTag;
     const tag = newer ? remoteTag : localTag;
     if (!tag) return;
+    // Release-notes links go to the exact page of the version being offered.
+    document.querySelectorAll('[data-release-link]').forEach((link) => {
+      link.href = `https://github.com/Hyena-App/hyena/releases/tag/${label(tag)}`;
+      if (link.textContent.trim() === 'release notes') link.textContent = `release notes for ${label(tag)}`;
+    });
     links.forEach((link) => {
       if (newer || !localTag) {
         link.href = 'https://github.com/Hyena-App/hyena/releases/latest/download/Hyena.dmg';
