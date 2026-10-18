@@ -26,6 +26,7 @@
       <span>Hyena</span>
     </a>
     <nav class="hero-nav" aria-label="Main">
+      <a class="link only-wide-link" href="#why">Why a hyena</a>
       <a class="link only-wide-link" href="#prey">What it eats</a>
       <a class="link only-wide-link" href="#screens">Screens</a>
       <a class="link only-wide-link" href="#open">Contribute</a>
@@ -41,9 +42,12 @@
   <div class="hero-foot wrap">
     <div class="hero-copy">
       <p class="hero-sentence" data-rise style="--i:7">
-        Finds the caches, old installers, iPhone backups, simulators and forgotten builds piling up on your Mac. Clears them only when you say so.
+        Hyenas clean up what others leave behind. On a Mac, that’s most of the disk.
       </p>
-      <p class="hero-meter" data-rise style="--i:8">
+      <p class="hero-sub" data-rise style="--i:8">
+        Hyena finds the caches, old installers, iPhone backups, simulators and forgotten builds piling up, and clears them only when you say so.
+      </p>
+      <p class="hero-meter" data-rise style="--i:9">
         <span class="meter-value nums" id="meter">47.84 GB</span>
         <span class="meter-label">found on one Mac, in one scan</span>
       </p>
@@ -75,6 +79,43 @@
         <span class="specimen-figure nums" aria-hidden="true">0</span>
         <figcaption>bytes sent off it</figcaption>
       </figure>
+    </div>
+  </section>
+
+  <!-- Why a hyena: the namesake's job in its ecosystem -->
+  <section class="why wrap grid" id="why" aria-labelledby="why-title">
+    <figure class="why-img shutter" data-reveal>
+      <img src="assets/hyena-kenya.jpg" width="1400" height="1276" loading="lazy"
+           alt="A spotted hyena standing in dry grass, looking toward the camera.">
+      <figcaption class="why-credit">Spotted hyena in Kenya by Joanne Goldby, CC BY 2.0</figcaption>
+    </figure>
+    <div class="why-copy">
+      <h2 id="why-title" class="why-title" data-reveal>Why a hyena</h2>
+      <p class="why-lead" data-reveal>
+        On the savanna, spotted hyenas are the clean-up crew. The job they do there is the job Hyena does on your Mac.
+      </p>
+      <dl class="why-list">
+        <div data-reveal>
+          <dt>They finish what others leave.</dt>
+          <dd>Long after lions and vultures move on, hyenas eat the rest, bones included.</dd>
+          <dd class="why-mac">Hyena finds the leftovers other tools walk past.</dd>
+        </div>
+        <div data-reveal>
+          <dt>Nothing goes to waste.</dt>
+          <dd>Their gut breaks bone down, and its minerals return to the savanna’s soil.</dd>
+          <dd class="why-mac">The space Hyena frees goes straight back to your work.</dd>
+        </div>
+        <div data-reveal>
+          <dt>A cleaner savanna is a healthier one.</dt>
+          <dd>Clearing carcasses quickly helps keep disease from spreading to every animal around.</dd>
+          <dd class="why-mac">Regular checks stop clutter spreading before the disk fills.</dd>
+        </div>
+        <div data-reveal>
+          <dt>They hunt, too.</dt>
+          <dd>Spotted hyenas are skilled hunters and catch most of what they eat themselves.</dd>
+          <dd class="why-mac">Hyena doesn’t wait for a full disk; it sniffs out what’s piling up.</dd>
+        </div>
+      </dl>
     </div>
   </section>
 
@@ -321,18 +362,6 @@ zsh scripts/build-app.sh && open dist/Hyena.app</code></pre>
       </details>
     </div>
   </section>
-
-  <!-- Second picture: the look -->
-  <figure class="portrait wrap grid">
-    <div class="portrait-img shutter" data-reveal>
-      <img src="assets/hyena-kenya.jpg" width="1400" height="1276" loading="lazy"
-           alt="A spotted hyena standing in dry grass, looking toward the camera.">
-    </div>
-    <figcaption class="portrait-text" data-reveal>
-      <p class="statement">Hyenas clean up what others leave behind. On a Mac, that’s most of the disk.</p>
-      <p class="small portrait-credit">Spotted hyena in Kenya by Joanne Goldby, CC BY 2.0</p>
-    </figcaption>
-  </figure>
 
   <!-- CTA -->
   <section class="cta" id="get" aria-labelledby="cta-title">
