@@ -167,3 +167,23 @@ document.querySelectorAll('[data-copy]').forEach((button) => {
     if (event.key === 'ArrowLeft') { event.preventDefault(); row.scrollBy({ left: -step, behavior: 'smooth' }); }
   });
 })();
+
+// Downloads always use GitHub's "latest release" URL, which redirects to the newest
+// tag's Hyena.dmg. This only adds the version to the label; if the API is unreachable
+// or rate-limited, the plain link still works.
+(() => {
+  const links = document.querySelectorAll('[data-download]');
+  if (!links.length || !window.fetch) return;
+  fetch('https://api.github.com/repos/Hyena-App/hyena/releases/latest', { headers: { Accept: 'application/vnd.github+json' } })
+    .then((response) => (response.ok ? response.json() : null))
+    .then((release) => {
+      const tag = release && typeof release.tag_name === 'string' ? release.tag_name : null;
+      if (!tag || !/^v?\d+(\.\d+){1,2}$/.test(tag)) return;
+      const version = tag.startsWith('v') ? tag : `v${tag}`;
+      links.forEach((link) => {
+        link.textContent = `${link.textContent.trim()} · ${version}`;
+        link.title = `Hyena ${version}, signed and notarized`;
+      });
+    })
+    .catch(() => {});
+})();
