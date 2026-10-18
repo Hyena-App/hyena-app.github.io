@@ -188,6 +188,12 @@ document.querySelectorAll('[data-copy]').forEach((button) => {
     const newer = remoteTag && remoteTag !== localTag;
     const tag = newer ? remoteTag : localTag;
     if (!tag) return;
+    // The header button opens the latest release's page on GitHub.
+    document.querySelectorAll('[data-release-button]').forEach((button) => {
+      button.href = `https://github.com/Hyena-App/hyena/releases/tag/${label(tag)}`;
+      button.textContent = `${button.textContent.replace(/ · v[\d.]+$/, '').trim()} · ${label(tag)}`;
+      button.title = `Hyena ${label(tag)} on GitHub Releases`;
+    });
     // Release-notes links go to the exact page of the version being offered.
     document.querySelectorAll('[data-release-link]').forEach((link) => {
       link.href = `https://github.com/Hyena-App/hyena/releases/tag/${label(tag)}`;
