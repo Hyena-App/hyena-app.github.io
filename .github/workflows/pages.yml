@@ -1,0 +1,62 @@
+name: Deploy site
+
+# Publishes the website with the latest Hyena release bundled in, so
+# https://hyena-app.github.io/download/Hyena.dmg downloads straight from this site.
+# Runs on every push, every 10 minutes (to pick up new releases) and on demand.
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the site
+        run: |
+          mkdir -p _site
+          rsync -a --exclude '.git' --exclude '.github' --exclude '.taste-skill' --exclude 'AGENTS.md' --exclude 'README.md' ./ _site/
+
+      - name: Bundle the latest release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p _site/download
+          if gh release view --repo Hyena-App/hyena --json tagName,publishedAt > release.json 2>/dev/null; then
+            gh release download --repo Hyena-App/hyena --pattern 'Hyena.dmg' --dir _site/download --clobber
+            python3 - <<'PY'
+          import json, hashlib, os
+          release = json.load(open("release.json"))
+          path = "_site/download/Hyena.dmg"
+          digest = hashlib.sha256(open(path, "rb").read()).hexdigest()
+          json.dump({"version": release["tagName"], "published": release["publishedAt"],
+                     "size": os.path.getsize(path), "sha256": digest},
+                    open("_site/download/version.json", "w"))
+          print("Bundled", release["tagName"])
+          PY
+          else
+            echo "No release yet; the download falls back to GitHub Releases."
+          fi
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

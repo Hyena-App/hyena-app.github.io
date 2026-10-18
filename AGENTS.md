@@ -4,7 +4,8 @@ The website for Hyena (https://hyena-app.github.io). App code lives in [Hyena-Ap
 
 ## How it's built
 
-- Static `index.html`, `styles.css`, `main.js`. No build step, no backend, no secrets. Pushing `main` publishes via GitHub Pages (`.nojekyll` keeps assets as-is).
+- Static `index.html`, `styles.css`, `main.js`. No backend, no secrets. `.github/workflows/pages.yml` deploys on every push, every 10 minutes and on demand. It bundles the latest app release as `download/Hyena.dmg` plus `download/version.json`, so downloads come from this site. The binary is never committed.
+- If GitHub has a newer release than the bundled one, `main.js` points the buttons at GitHub's latest asset, so visitors always get the newest version.
 - Preview locally: `python3 -m http.server 4173` and open http://127.0.0.1:4173.
 - Content is fully readable without JavaScript. Motion respects `prefers-reduced-motion`.
 
